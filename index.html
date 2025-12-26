@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tugas Jaringan Komputer - Rajiel Jibran</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-green: #1b4332;
+            --medium-green: #2d6a4f;
+            --accent-green: #52b788;
+            --soft-green: #f0fff4;
+            --white: #ffffff;
+            --text-dark: #2d3436;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--white);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        /* HEADER LANCIP (Pointed Shape) */
+        header {
+            background: linear-gradient(135deg, var(--primary-green), var(--medium-green));
+            color: white;
+            padding: 50px 0 80px;
+            text-align: center;
+            /* Membuat bentuk lancip di bawah */
+            clip-path: polygon(0 0, 100% 0, 100% 85%, 50% 100%, 0 85%);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        header h1 {
+            margin: 0;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-size: 1.8rem;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: -30px auto 50px;
+            padding: 0 20px;
+        }
+
+        /* PROFIL SECTION - DATA LURUS SEJAJAR */
+        .profile-card {
+            display: flex;
+            align-items: center;
+            background: var(--white);
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            border-bottom: 5px solid var(--accent-green);
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Hiasan Daun Background */
+        .profile-card::after {
+            content: "\f06c";
+            font-family: "Font Awesome 5 Free";
+            font-weight: 900;
+            position: absolute;
+            right: -20px;
+            bottom: -20px;
+            font-size: 150px;
+            color: rgba(82, 183, 136, 0.1);
+            transform: rotate(-20deg);
+        }
+
+        .profile-img {
+            width: 160px;
+            height: 160px;
+            border-radius: 15px;
+            object-fit: cover;
+            margin-right: 40px;
+            border: 4px solid var(--soft-green);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .profile-info h2 {
+            margin: 0 0 20px 0;
+            color: var(--primary-green);
+            font-size: 1.5rem;
+        }
+
+        /* Pengaturan Grid agar Tulisan Lurus Sejajar */
+        .info-grid {
+            display: grid;
+            grid-template-columns: 80px 20px 1fr;
+            gap: 8px;
+            font-size: 1.05rem;
+        }
+
+        .info-label {
+            font-weight: 600;
+            color: var(--medium-green);
+        }
+
+        /* PEMBAHASAN PERANGKAT DENGAN FOTO */
+        .device-section {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 50px;
+        }
+
+        .device-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            border: 1px solid #eee;
+            transition: all 0.3s ease;
+        }
+
+        .device-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+
+        .device-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            background-color: #f4f4f4;
+        }
+
+        .device-body {
+            padding: 20px;
+        }
+
+        .device-body h3 {
+            color: var(--primary-green);
+            margin: 0 0 10px 0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        /* DOWNLOAD SECTION */
+        .download-area {
+            background: var(--soft-green);
+            padding: 40px;
+            border-radius: 20px;
+            text-align: center;
+            margin-top: 50px;
+            border: 2px dashed var(--accent-green);
+        }
+
+        .btn-group {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 25px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            background: var(--primary-green);
+            color: white;
+            padding: 12px 25px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .btn:hover {
+            background: var(--accent-green);
+            box-shadow: 0 5px 15px rgba(82, 183, 136, 0.4);
+        }
+
+        /* FOOTER HIJAU */
+        footer {
+            background-color: var(--primary-green);
+            color: white;
+            padding: 50px 20px;
+            text-align: center;
+            margin-top: 80px;
+        }
+
+        .main-content-tag {
+            background: var(--accent-green);
+            color: var(--primary-green);
+            padding: 5px 20px;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            display: inline-block;
+            margin-bottom: 20px;
+        }
+
+        .leaf-decoration {
+            color: var(--accent-green);
+            margin: 0 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1><b>Mata Kuliah : Jaringan Komputer</b></h1>
+    </header>
+
+    <div class="container">
+        <div class="profile-card">
+            <img src="Rajiel - Jarkom.png" alt="Foto Rajiel" class="profile-img">
+            <div class="profile-info">
+                <h2>Data Mahasiswa</h2>
+                <div class="info-grid">
+                    <div class="info-label">Nama</div> <div>:</div> <div>Rajiel Jibran Ziya Zidna Fann</div>
+                    <div class="info-label">NIM</div> <div>:</div> <div>607012500099</div>
+                    <div class="info-label">Kelas</div> <div>:</div> <div>D3SI-49-04</div>
+                    <div class="info-label">Prodi</div> <div>:</div> <div>D3 Sistem Informasi</div>
+                </div>
+            </div>
+        </div>
+
+        <h2 style="text-align: center; margin-top: 60px; color: var(--primary-green);">
+            <i class="fas fa-microchip"></i> Pembahasan Perangkat Jaringan
+        </h2>
+
+        
+        <div class="device-section">
+            <div class="device-card">
+                <img src="Router.jpg" alt="Router" class="device-img">
+                <div class="device-body">
+                    <h3><i class="fas fa-route"></i> Router</h3>
+                    <p>Perangkat cerdas yang merutekan paket data antar jaringan yang berbeda (misalnya LAN ke Internet).</p>
+                </div>
+            </div>
+
+            <div class="device-card">
+                <img src="Switch.jpg" alt="Switch" class="device-img">
+                <div class="device-body">
+                    <h3><i class="fas fa-network-wired"></i> Switch</h3>
+                    <p>Menghubungkan banyak perangkat dalam satu LAN dan mengirimkan data hanya ke port tujuan yang tepat.</p>
+                </div>
+            </div>
+
+            <div class="device-card">
+                <img src="R0uter.jpg" alt="Access Point" class="device-img">
+                <div class="device-body">
+                    <h3><i class="fas fa-wifi"></i> Access Point</h3>
+                    <p>Menyediakan konektivitas nirkabel sehingga perangkat mobile bisa terhubung ke jaringan kabel (LAN).</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="download-area">
+            <h3><i class="fas fa-file-pdf"></i> Unduh Lampiran Tutorial</h3>
+            <div class="btn-group">
+                <a href="tutorial-hosting.pdf" class="btn"><i class="fas fa-cloud-upload-alt"></i> 1. Tutorial Hosting Web</a>
+                <a href="tutorial-isi.pdf" class="btn"><i class="fas fa-edit"></i> 2. Tutorial Isi Web</a>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="main-content-tag">Main Content Marker</div>
+        <p><i class="fas fa-leaf leaf-decoration"></i> &copy; 2025 Rajiel Jibran - Telkom University <i class="fas fa-leaf leaf-decoration"></i></p>
+        <p style="font-size: 0.8rem; opacity: 0.7;">Green Campus Initiative | D3 Sistem Informasi</p>
+    </footer>
+
+</body>
+</html>
